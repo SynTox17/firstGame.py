@@ -1,2 +1,0 @@
-function XmlHttp(){var a=!1;if(!a&&"undefined"!=typeof XMLHttpRequest)try{a=new XMLHttpRequest}catch(b){a=!1}return a}
-function XmlHttpMethod(a,b,d,c){"undefined"===typeof c&&(c="GET");XmlHttpObj=XmlHttp();if(!XmlHttpObj)return!1;try{XmlHttpObj.open(c,a,d),"function"==typeof b&&(XmlHttpObj.onreadystatechange=b),XmlHttpObj.setRequestHeader("Accept","message/x-formresult"),XmlHttpObj.setRequestHeader("pragma","no-cache"),XmlHttpObj.setRequestHeader("cache-control","no-cache"),XmlHttpObj.send(null)}catch(e){return!1}return!0};

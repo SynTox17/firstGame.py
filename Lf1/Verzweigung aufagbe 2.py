@@ -1,7 +1,7 @@
 hund = int(input("das alter"))
 if hund == 1:
     print("Er ist 12")
-elif hund  == 2:
+elif hund == 2:
     print("Er ist 22")
 elif hund > 2:
     hund = hund - 2
@@ -20,14 +20,23 @@ if erg1 or erg2 == tip1 or tip2:
 if erg1 or erg2 != tip1 or tip2:
     print("0 Punkte")
 #uhrzeit umrechnen
-hn = 13
-mn = 18
-sn = 10
-h = int(input("Stunde"))
-m = int(input("Minute"))
-s = int(input("Sekunde"))
-print(h, m, s)
-hn = hn + h
-mn = mn + m
+day = 0
+hn = 23
+mn = 59
+sn = 59
+s = int(input("Second"))
 sn = sn + s
-print(hn, mn, sn)
+while sn > 59:
+    sn = sn - 60
+    mn = mn + 1
+    print(sn, "Second")
+    print(mn, "Minutes")
+while mn > 59:
+    mn = mn - 60
+    hn = hn + 1
+    print(hn, "hour")
+while hn == 24:
+    hn = hn - 24
+    day = day + 1
+print("day", day,"hour", hn,"minute", mn,"second", sn, end="")
+
