@@ -1,0 +1,1 @@
+function RegisterItslTop(){if(!window.hasOwnProperty("itslTop")){var a=null;Object.defineProperty(window,"itslTop",{get:function(){if(a)return a;try{if(window.top.document)return a=window.top}catch(d){}for(var b=window,c=!1;!c;)try{window.top===b.parent?c=!0:b=b.parent}catch(d){c=!0}return a=b}})}}RegisterItslTop();

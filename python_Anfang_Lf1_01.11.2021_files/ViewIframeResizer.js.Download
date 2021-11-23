@@ -1,0 +1,48 @@
+﻿(function () {
+    var isSuspended = false;
+    var resizeTimeout = null;
+    var offsetTreshold = 10; // if smaller or equal than this, the offset will just be set to 0
+    var resizeInterval = 100; // only resize frame once every resizeInterval in milliseconds
+    var adjustFrameSize = function () {
+
+        if (isSuspended) {
+            return;
+        }
+
+        var linkOrButtonEl = $('.file-link-link');
+        var linkOrButtonHeight = linkOrButtonEl.height();
+        linkOrButtonHeight = linkOrButtonHeight <= offsetTreshold ? 0 : linkOrButtonHeight + linkOrButtonEl.offset().top;
+
+        var descriptionHeight = 0;
+        if (linkOrButtonHeight === 0) {
+            var descriptionEl = $('.file-link-description');
+            descriptionHeight = descriptionEl.height();
+            var descriptionMargin = parseInt(descriptionEl.css('margin-bottom'));
+            descriptionHeight = descriptionHeight <= offsetTreshold ? 0 : descriptionHeight + descriptionEl.offset().top + descriptionMargin;
+        }
+
+        var headerHeight = 0;
+        if (descriptionHeight === 0) {
+            var headerEl = $('.file-link-header');
+            headerHeight = headerEl.height();
+            headerHeight = headerHeight <= offsetTreshold ? 0 : headerHeight + headerEl.offset().top;
+        }
+
+        $('.iframe-container').css('top', (headerHeight + descriptionHeight + linkOrButtonHeight) + 'px');
+    };
+    $(window).resize(function () {
+        if (resizeTimeout == null) {
+            resizeTimeout = setTimeout(function () {
+                adjustFrameSize();
+                resizeTimeout = null;
+            }, resizeInterval);
+        }
+    });
+    CommonFunctions.attachPostMessageEventListener($(window), CommonWindowMessages.MessageNames.enableFullScreen, function() {
+            isSuspended = true;
+        });
+    CommonFunctions.attachPostMessageEventListener($(window), CommonWindowMessages.MessageNames.disableFullScreen, function() {
+            isSuspended = false;
+        });
+    $(document).ready(adjustFrameSize);
+})();

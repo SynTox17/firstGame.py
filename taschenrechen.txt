@@ -1,0 +1,18 @@
+zahl1 = int(input("Deine Zahl"))
+zahl2 = int(input("deine Zahl"))
+rechenzeichen = input("Dein Operator")
+if rechenzeichen("+" , "-" , "*" , "/"):
+print(zahl1 rechenzeichen zahl2)
+     else
+     print("Es Wurde kein Rechenzeichen gefunden Mis/Sir")
+if rechenzeichen == "/":
+      if zahl2 == "0"
+      print("Nicht durch 0 teilen")
+else
+zahl1 = int(input("Deine Zahl"))
+zahl2 = int(input("deine Zahl"))
+rechenzeichen = input("Dein Operator")
+if rechenzeichen == ("+" , "-" , "*" , "/"):
+print(zahl1 rechenzeichen zahl2)
+     else
+     print("Es Wurde kein Rechenzeichen gefunden Mis/Sir")
