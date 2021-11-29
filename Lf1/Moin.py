@@ -14,7 +14,6 @@ while p < 10:
         print("Unbekannter Fehler nur zahl von 1 bis 3 ")
         quit()
     b = random.randint(1, 3)
-    print("Du warst Scheiße")
     print(b)
     if a == b:
         print("Unentschieden")
@@ -50,4 +49,6 @@ while p < 10:
         p += 1
         s += 1
         g += 1
+    elif g < 3:
+        print("Mies gespielt")
     print(g, s, u, n)
